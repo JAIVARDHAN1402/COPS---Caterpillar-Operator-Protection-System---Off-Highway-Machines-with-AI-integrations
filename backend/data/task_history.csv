@@ -1,0 +1,908 @@
+task_id,task_type,weather,operator_skill,machine_age,estimated_min,actual_min
+T001,Earth Excavation,Sunny,Expert,2,60,58.0
+T002,Trenching,Rainy,Intermediate,4,45,52.0
+T003,Material Loading,Cloudy,Beginner,3,30,42.0
+T004,Grading,Sunny,Expert,5,35,33.0
+T005,Demolition,Windy,Intermediate,6,90,105.0
+H0000,Demolition,Rainy,Beginner,7,90,132.5
+H0001,Earth Excavation,Rainy,Expert,4,60,67.5
+H0002,Earth Excavation,Cloudy,Expert,8,60,64.9
+H0003,Grading,Cloudy,Intermediate,3,35,39.1
+H0004,Material Loading,Windy,Intermediate,10,30,34.8
+H0005,Material Loading,Sunny,Intermediate,3,30,32.0
+H0006,Material Loading,Cloudy,Intermediate,1,30,31.0
+H0007,Demolition,Cloudy,Intermediate,7,90,101.7
+H0008,Earth Excavation,Windy,Expert,2,60,57.9
+H0009,Material Loading,Rainy,Expert,1,30,29.6
+H0010,Demolition,Cloudy,Beginner,9,90,137.7
+H0011,Earth Excavation,Sunny,Intermediate,8,60,68.3
+H0012,Grading,Sunny,Intermediate,9,35,38.3
+H0013,Grading,Sunny,Expert,4,35,35.2
+H0014,Material Loading,Rainy,Intermediate,4,30,33.1
+H0015,Material Loading,Windy,Expert,7,30,30.6
+H0016,Trenching,Cloudy,Expert,3,45,46.7
+H0017,Demolition,Windy,Expert,3,90,83.9
+H0018,Earth Excavation,Sunny,Beginner,7,60,88.8
+H0019,Grading,Cloudy,Expert,10,35,40.7
+H0020,Grading,Cloudy,Expert,10,35,38.2
+H0021,Demolition,Cloudy,Intermediate,7,90,101.8
+H0022,Trenching,Sunny,Beginner,3,45,62.8
+H0023,Grading,Sunny,Beginner,6,35,50.9
+H0024,Grading,Sunny,Expert,4,35,31.5
+H0025,Earth Excavation,Cloudy,Intermediate,7,60,75.3
+H0026,Grading,Cloudy,Intermediate,4,35,39.4
+H0027,Demolition,Windy,Beginner,6,90,137.0
+H0028,Material Loading,Sunny,Beginner,10,30,43.1
+H0029,Grading,Cloudy,Beginner,2,35,48.7
+H0030,Demolition,Windy,Intermediate,7,90,97.2
+H0031,Trenching,Sunny,Intermediate,3,45,49.1
+H0032,Trenching,Rainy,Intermediate,4,45,54.3
+H0033,Earth Excavation,Rainy,Intermediate,3,60,73.1
+H0034,Earth Excavation,Cloudy,Beginner,6,60,84.4
+H0035,Material Loading,Cloudy,Beginner,6,30,42.5
+H0036,Grading,Sunny,Intermediate,10,35,40.5
+H0037,Material Loading,Sunny,Beginner,10,30,44.4
+H0038,Trenching,Cloudy,Beginner,8,45,66.7
+H0039,Grading,Sunny,Expert,4,35,36.5
+H0040,Trenching,Rainy,Expert,10,45,50.7
+H0041,Demolition,Cloudy,Intermediate,5,90,98.2
+H0042,Earth Excavation,Cloudy,Intermediate,10,60,72.2
+H0043,Earth Excavation,Sunny,Intermediate,2,60,62.0
+H0044,Grading,Windy,Expert,9,35,37.8
+H0045,Grading,Rainy,Intermediate,9,35,43.0
+H0046,Trenching,Sunny,Expert,1,45,42.1
+H0047,Grading,Sunny,Intermediate,3,35,36.1
+H0048,Trenching,Sunny,Intermediate,6,45,49.3
+H0049,Material Loading,Rainy,Intermediate,4,30,35.3
+H0050,Material Loading,Cloudy,Expert,7,30,32.6
+H0051,Trenching,Rainy,Beginner,1,45,68.7
+H0052,Earth Excavation,Sunny,Expert,1,60,53.9
+H0053,Trenching,Windy,Expert,7,45,44.2
+H0054,Material Loading,Sunny,Beginner,8,30,43.9
+H0055,Material Loading,Cloudy,Intermediate,2,30,30.9
+H0056,Grading,Windy,Intermediate,1,35,38.3
+H0057,Grading,Sunny,Intermediate,9,35,38.8
+H0058,Material Loading,Sunny,Expert,9,30,31.9
+H0059,Grading,Cloudy,Beginner,3,35,48.9
+H0060,Earth Excavation,Cloudy,Intermediate,3,60,67.2
+H0061,Material Loading,Sunny,Intermediate,4,30,33.6
+H0062,Material Loading,Sunny,Intermediate,4,30,29.6
+H0063,Grading,Sunny,Intermediate,3,35,38.9
+H0064,Trenching,Cloudy,Expert,8,45,50.2
+H0065,Earth Excavation,Sunny,Expert,8,60,62.2
+H0066,Grading,Rainy,Expert,1,35,34.3
+H0067,Grading,Cloudy,Expert,9,35,35.9
+H0068,Earth Excavation,Sunny,Intermediate,9,60,73.7
+H0069,Grading,Windy,Beginner,8,35,54.5
+H0070,Trenching,Sunny,Intermediate,4,45,48.4
+H0071,Demolition,Sunny,Intermediate,2,90,98.0
+H0072,Grading,Sunny,Expert,9,35,35.9
+H0073,Material Loading,Windy,Beginner,7,30,47.1
+H0074,Grading,Windy,Intermediate,9,35,42.6
+H0075,Earth Excavation,Windy,Beginner,2,60,89.5
+H0076,Trenching,Sunny,Intermediate,5,45,47.7
+H0077,Trenching,Cloudy,Intermediate,9,45,52.5
+H0078,Earth Excavation,Sunny,Beginner,8,60,86.3
+H0079,Trenching,Sunny,Beginner,4,45,58.2
+H0080,Earth Excavation,Windy,Beginner,2,60,81.8
+H0081,Trenching,Sunny,Beginner,2,45,59.5
+H0082,Material Loading,Cloudy,Beginner,6,30,42.1
+H0083,Material Loading,Sunny,Beginner,10,30,44.7
+H0084,Trenching,Sunny,Expert,5,45,42.7
+H0085,Material Loading,Cloudy,Expert,8,30,33.9
+H0086,Trenching,Rainy,Expert,9,45,51.2
+H0087,Grading,Sunny,Expert,3,35,33.8
+H0088,Demolition,Sunny,Beginner,2,90,116.5
+H0089,Demolition,Windy,Expert,2,90,90.5
+H0090,Grading,Cloudy,Intermediate,3,35,38.4
+H0091,Demolition,Windy,Beginner,4,90,133.5
+H0092,Trenching,Sunny,Beginner,2,45,55.6
+H0093,Trenching,Rainy,Expert,3,45,47.1
+H0094,Material Loading,Rainy,Expert,5,30,32.4
+H0095,Trenching,Sunny,Expert,6,45,43.2
+H0096,Demolition,Windy,Beginner,9,90,140.6
+H0097,Demolition,Rainy,Intermediate,8,90,112.8
+H0098,Trenching,Sunny,Beginner,4,45,61.1
+H0099,Trenching,Cloudy,Expert,10,45,50.9
+H0100,Material Loading,Cloudy,Expert,2,30,27.3
+H0101,Trenching,Rainy,Expert,6,45,48.7
+H0102,Material Loading,Cloudy,Beginner,8,30,43.5
+H0103,Trenching,Windy,Beginner,5,45,69.7
+H0104,Material Loading,Sunny,Intermediate,7,30,33.1
+H0105,Earth Excavation,Windy,Expert,1,60,62.7
+H0106,Grading,Cloudy,Intermediate,5,35,38.6
+H0107,Demolition,Sunny,Intermediate,8,90,103.4
+H0108,Earth Excavation,Sunny,Intermediate,10,60,69.7
+H0109,Earth Excavation,Sunny,Intermediate,6,60,63.4
+H0110,Earth Excavation,Rainy,Expert,2,60,58.4
+H0111,Demolition,Windy,Intermediate,8,90,110.8
+H0112,Earth Excavation,Cloudy,Beginner,5,60,87.9
+H0113,Grading,Cloudy,Intermediate,7,35,40.1
+H0114,Earth Excavation,Sunny,Intermediate,8,60,67.7
+H0115,Demolition,Sunny,Beginner,6,90,127.6
+H0116,Trenching,Windy,Intermediate,9,45,50.4
+H0117,Demolition,Sunny,Beginner,1,90,111.5
+H0118,Material Loading,Windy,Intermediate,6,30,35.3
+H0119,Trenching,Sunny,Expert,5,45,43.3
+H0120,Trenching,Rainy,Intermediate,5,45,50.8
+H0121,Demolition,Cloudy,Beginner,4,90,129.2
+H0122,Demolition,Sunny,Beginner,4,90,133.7
+H0123,Demolition,Sunny,Beginner,7,90,123.1
+H0124,Material Loading,Sunny,Intermediate,5,30,33.7
+H0125,Material Loading,Cloudy,Beginner,9,30,48.3
+H0126,Demolition,Cloudy,Expert,4,90,94.5
+H0127,Material Loading,Windy,Expert,8,30,31.3
+H0128,Material Loading,Cloudy,Expert,9,30,31.3
+H0129,Material Loading,Cloudy,Intermediate,3,30,32.5
+H0130,Demolition,Cloudy,Intermediate,3,90,97.7
+H0131,Earth Excavation,Rainy,Expert,3,60,61.2
+H0132,Trenching,Sunny,Intermediate,3,45,47.4
+H0133,Trenching,Sunny,Expert,8,45,47.1
+H0134,Grading,Cloudy,Beginner,8,35,52.2
+H0135,Material Loading,Windy,Beginner,7,30,42.9
+H0136,Trenching,Cloudy,Intermediate,3,45,48.4
+H0137,Trenching,Cloudy,Expert,5,45,45.7
+H0138,Trenching,Sunny,Beginner,2,45,59.6
+H0139,Earth Excavation,Sunny,Intermediate,2,60,63.0
+H0140,Earth Excavation,Sunny,Expert,5,60,58.5
+H0141,Material Loading,Cloudy,Intermediate,2,30,32.4
+H0142,Material Loading,Sunny,Beginner,9,30,44.0
+H0143,Material Loading,Sunny,Intermediate,7,30,31.5
+H0144,Trenching,Sunny,Beginner,8,45,66.3
+H0145,Earth Excavation,Sunny,Expert,2,60,51.2
+H0146,Grading,Rainy,Intermediate,10,35,43.4
+H0147,Grading,Cloudy,Beginner,7,35,55.6
+H0148,Grading,Cloudy,Expert,4,35,33.5
+H0149,Trenching,Cloudy,Beginner,7,45,67.1
+H0150,Earth Excavation,Sunny,Expert,4,60,60.4
+H0151,Trenching,Cloudy,Beginner,4,45,63.2
+H0152,Material Loading,Windy,Beginner,9,30,47.7
+H0153,Trenching,Windy,Expert,1,45,43.6
+H0154,Earth Excavation,Windy,Expert,8,60,64.4
+H0155,Grading,Sunny,Intermediate,10,35,40.7
+H0156,Trenching,Sunny,Intermediate,9,45,52.8
+H0157,Material Loading,Rainy,Expert,6,30,32.4
+H0158,Grading,Cloudy,Expert,8,35,37.3
+H0159,Trenching,Rainy,Expert,5,45,48.7
+H0160,Demolition,Windy,Intermediate,7,90,111.9
+H0161,Earth Excavation,Sunny,Expert,7,60,63.2
+H0162,Material Loading,Sunny,Intermediate,8,30,34.5
+H0163,Demolition,Rainy,Intermediate,5,90,105.7
+H0164,Grading,Sunny,Expert,4,35,33.9
+H0165,Earth Excavation,Sunny,Intermediate,2,60,62.9
+H0166,Trenching,Rainy,Expert,8,45,49.0
+H0167,Material Loading,Sunny,Expert,6,30,30.5
+H0168,Demolition,Rainy,Expert,5,90,99.3
+H0169,Material Loading,Rainy,Expert,9,30,33.7
+H0170,Trenching,Windy,Expert,4,45,46.5
+H0171,Trenching,Cloudy,Intermediate,9,45,50.2
+H0172,Demolition,Sunny,Intermediate,4,90,97.2
+H0173,Earth Excavation,Cloudy,Beginner,1,60,78.7
+H0174,Material Loading,Sunny,Intermediate,7,30,33.5
+H0175,Grading,Rainy,Intermediate,6,35,43.3
+H0176,Material Loading,Cloudy,Expert,6,30,34.3
+H0177,Demolition,Sunny,Intermediate,9,90,111.9
+H0178,Trenching,Sunny,Intermediate,5,45,49.9
+H0179,Material Loading,Cloudy,Expert,7,30,33.7
+H0180,Grading,Sunny,Expert,10,35,36.2
+H0181,Grading,Rainy,Expert,9,35,41.2
+H0182,Grading,Cloudy,Beginner,2,35,46.9
+H0183,Grading,Cloudy,Intermediate,2,35,34.0
+H0184,Material Loading,Sunny,Intermediate,5,30,35.2
+H0185,Grading,Sunny,Beginner,8,35,48.7
+H0186,Demolition,Sunny,Beginner,8,90,133.3
+H0187,Material Loading,Windy,Intermediate,5,30,33.8
+H0188,Material Loading,Sunny,Expert,2,30,26.6
+H0189,Demolition,Cloudy,Intermediate,2,90,101.5
+H0190,Grading,Sunny,Expert,3,35,33.7
+H0191,Grading,Cloudy,Beginner,3,35,48.2
+H0192,Trenching,Rainy,Expert,9,45,56.3
+H0193,Material Loading,Sunny,Intermediate,3,30,32.6
+H0194,Grading,Sunny,Intermediate,10,35,41.2
+H0195,Demolition,Rainy,Intermediate,2,90,99.5
+H0196,Earth Excavation,Sunny,Expert,10,60,62.1
+H0197,Earth Excavation,Sunny,Beginner,10,60,95.1
+H0198,Demolition,Cloudy,Intermediate,1,90,92.4
+H0199,Material Loading,Windy,Beginner,8,30,45.3
+H0200,Demolition,Cloudy,Beginner,9,90,139.0
+H0201,Earth Excavation,Sunny,Intermediate,10,60,67.8
+H0202,Material Loading,Sunny,Beginner,10,30,43.9
+H0203,Grading,Windy,Intermediate,4,35,40.5
+H0204,Trenching,Cloudy,Expert,4,45,46.5
+H0205,Demolition,Cloudy,Intermediate,8,90,106.7
+H0206,Material Loading,Sunny,Expert,3,30,28.6
+H0207,Material Loading,Sunny,Expert,8,30,31.2
+H0208,Grading,Sunny,Intermediate,2,35,36.3
+H0209,Trenching,Cloudy,Expert,3,45,45.7
+H0210,Demolition,Sunny,Expert,6,90,100.0
+H0211,Grading,Sunny,Intermediate,6,35,39.8
+H0212,Material Loading,Sunny,Expert,10,30,30.7
+H0213,Earth Excavation,Sunny,Intermediate,10,60,65.8
+H0214,Material Loading,Sunny,Intermediate,10,30,32.5
+H0215,Trenching,Sunny,Expert,8,45,46.5
+H0216,Trenching,Cloudy,Expert,1,45,41.3
+H0217,Demolition,Sunny,Expert,4,90,92.1
+H0218,Demolition,Sunny,Intermediate,5,90,97.2
+H0219,Material Loading,Rainy,Beginner,3,30,43.1
+H0220,Demolition,Sunny,Expert,1,90,78.4
+H0221,Demolition,Sunny,Intermediate,1,90,97.1
+H0222,Trenching,Rainy,Expert,2,45,48.3
+H0223,Earth Excavation,Windy,Intermediate,1,60,64.9
+H0224,Grading,Sunny,Expert,7,35,36.4
+H0225,Grading,Rainy,Intermediate,10,35,44.0
+H0226,Trenching,Rainy,Expert,1,45,45.9
+H0227,Trenching,Rainy,Beginner,7,45,72.7
+H0228,Grading,Sunny,Beginner,2,35,49.0
+H0229,Demolition,Rainy,Intermediate,3,90,103.7
+H0230,Trenching,Sunny,Intermediate,6,45,47.0
+H0231,Trenching,Cloudy,Beginner,8,45,68.2
+H0232,Demolition,Sunny,Beginner,4,90,124.4
+H0233,Earth Excavation,Sunny,Beginner,1,60,82.0
+H0234,Grading,Cloudy,Intermediate,1,35,38.5
+H0235,Demolition,Rainy,Expert,10,90,102.8
+H0236,Trenching,Rainy,Intermediate,5,45,55.9
+H0237,Demolition,Sunny,Beginner,6,90,127.3
+H0238,Material Loading,Sunny,Intermediate,7,30,35.1
+H0239,Trenching,Sunny,Intermediate,6,45,48.3
+H0240,Trenching,Sunny,Expert,1,45,41.3
+H0241,Grading,Cloudy,Expert,4,35,34.7
+H0242,Demolition,Rainy,Beginner,2,90,134.0
+H0243,Grading,Rainy,Expert,5,35,39.2
+H0244,Material Loading,Windy,Expert,3,30,28.0
+H0245,Trenching,Sunny,Beginner,10,45,69.5
+H0246,Material Loading,Sunny,Expert,4,30,29.3
+H0247,Material Loading,Sunny,Intermediate,7,30,32.2
+H0248,Material Loading,Rainy,Beginner,10,30,48.4
+H0249,Earth Excavation,Sunny,Beginner,10,60,90.0
+H0250,Earth Excavation,Cloudy,Expert,7,60,62.8
+H0251,Demolition,Sunny,Expert,3,90,88.8
+H0252,Demolition,Sunny,Expert,10,90,95.1
+H0253,Grading,Sunny,Intermediate,2,35,35.8
+H0254,Earth Excavation,Sunny,Intermediate,5,60,66.2
+H0255,Grading,Cloudy,Beginner,4,35,53.3
+H0256,Material Loading,Sunny,Beginner,8,30,44.6
+H0257,Grading,Rainy,Intermediate,6,35,39.1
+H0258,Demolition,Rainy,Expert,2,90,88.0
+H0259,Material Loading,Sunny,Expert,10,30,30.1
+H0260,Demolition,Cloudy,Intermediate,1,90,91.3
+H0261,Material Loading,Rainy,Beginner,2,30,40.3
+H0262,Material Loading,Cloudy,Intermediate,2,30,32.9
+H0263,Demolition,Sunny,Intermediate,9,90,99.4
+H0264,Grading,Windy,Intermediate,6,35,40.4
+H0265,Demolition,Windy,Intermediate,10,90,114.0
+H0266,Demolition,Sunny,Intermediate,8,90,96.4
+H0267,Demolition,Rainy,Intermediate,6,90,100.5
+H0268,Demolition,Rainy,Expert,3,90,89.0
+H0269,Demolition,Rainy,Beginner,5,90,131.6
+H0270,Earth Excavation,Cloudy,Expert,10,60,59.9
+H0271,Trenching,Cloudy,Expert,1,45,46.6
+H0272,Grading,Cloudy,Beginner,4,35,52.1
+H0273,Demolition,Cloudy,Expert,4,90,84.9
+H0274,Earth Excavation,Sunny,Beginner,10,60,89.1
+H0275,Trenching,Windy,Expert,3,45,45.2
+H0276,Demolition,Sunny,Beginner,1,90,115.4
+H0277,Trenching,Cloudy,Expert,2,45,42.9
+H0278,Grading,Rainy,Expert,8,35,42.8
+H0279,Trenching,Cloudy,Beginner,10,45,76.5
+H0280,Trenching,Cloudy,Beginner,9,45,68.1
+H0281,Earth Excavation,Sunny,Intermediate,9,60,71.0
+H0282,Trenching,Sunny,Intermediate,3,45,47.4
+H0283,Trenching,Sunny,Expert,10,45,48.6
+H0284,Demolition,Cloudy,Intermediate,9,90,106.0
+H0285,Earth Excavation,Sunny,Expert,7,60,64.6
+H0286,Material Loading,Cloudy,Expert,9,30,31.6
+H0287,Material Loading,Cloudy,Intermediate,4,30,32.1
+H0288,Material Loading,Cloudy,Intermediate,4,30,33.0
+H0289,Earth Excavation,Cloudy,Beginner,8,60,87.5
+H0290,Earth Excavation,Sunny,Expert,10,60,62.5
+H0291,Demolition,Rainy,Intermediate,3,90,101.3
+H0292,Demolition,Windy,Expert,1,90,84.7
+H0293,Grading,Sunny,Expert,9,35,36.9
+H0294,Grading,Sunny,Intermediate,5,35,36.7
+H0295,Demolition,Cloudy,Beginner,5,90,135.2
+H0296,Trenching,Cloudy,Intermediate,2,45,46.4
+H0297,Demolition,Cloudy,Beginner,1,90,120.5
+H0298,Demolition,Cloudy,Expert,3,90,88.5
+H0299,Earth Excavation,Sunny,Expert,1,60,51.2
+H0300,Earth Excavation,Rainy,Beginner,3,60,86.2
+H0301,Trenching,Sunny,Intermediate,3,45,43.9
+H0302,Trenching,Sunny,Intermediate,8,45,51.5
+H0303,Grading,Windy,Beginner,10,35,57.2
+H0304,Demolition,Sunny,Intermediate,4,90,95.8
+H0305,Grading,Rainy,Intermediate,4,35,41.3
+H0306,Demolition,Sunny,Beginner,10,90,131.9
+H0307,Trenching,Sunny,Expert,4,45,45.6
+H0308,Trenching,Sunny,Beginner,2,45,58.3
+H0309,Trenching,Windy,Expert,7,45,49.4
+H0310,Material Loading,Sunny,Intermediate,5,30,30.7
+H0311,Demolition,Cloudy,Expert,7,90,99.6
+H0312,Earth Excavation,Sunny,Intermediate,9,60,72.4
+H0313,Demolition,Sunny,Intermediate,10,90,106.0
+H0314,Grading,Rainy,Intermediate,8,35,45.4
+H0315,Demolition,Windy,Beginner,1,90,124.1
+H0316,Material Loading,Sunny,Intermediate,8,30,33.5
+H0317,Grading,Rainy,Intermediate,7,35,43.1
+H0318,Grading,Cloudy,Intermediate,8,35,36.8
+H0319,Earth Excavation,Sunny,Expert,5,60,60.0
+H0320,Material Loading,Sunny,Beginner,5,30,45.4
+H0321,Earth Excavation,Cloudy,Beginner,4,60,86.7
+H0322,Earth Excavation,Cloudy,Intermediate,6,60,65.6
+H0323,Grading,Rainy,Intermediate,2,35,40.3
+H0324,Earth Excavation,Rainy,Expert,7,60,70.6
+H0325,Trenching,Cloudy,Intermediate,3,45,50.7
+H0326,Grading,Windy,Beginner,1,35,47.5
+H0327,Trenching,Windy,Expert,4,45,47.0
+H0328,Grading,Cloudy,Intermediate,6,35,37.4
+H0329,Demolition,Cloudy,Intermediate,8,90,101.5
+H0330,Trenching,Cloudy,Intermediate,1,45,49.4
+H0331,Grading,Sunny,Beginner,9,35,52.2
+H0332,Material Loading,Sunny,Expert,7,30,28.6
+H0333,Trenching,Windy,Intermediate,6,45,53.8
+H0334,Demolition,Windy,Expert,4,90,96.6
+H0335,Earth Excavation,Cloudy,Expert,5,60,55.0
+H0336,Demolition,Sunny,Expert,3,90,87.8
+H0337,Grading,Sunny,Expert,9,35,39.4
+H0338,Grading,Rainy,Expert,2,35,37.6
+H0339,Material Loading,Sunny,Expert,5,30,30.4
+H0340,Trenching,Rainy,Intermediate,8,45,55.2
+H0341,Grading,Cloudy,Intermediate,2,35,38.1
+H0342,Material Loading,Windy,Expert,9,30,32.1
+H0343,Earth Excavation,Rainy,Intermediate,9,60,69.7
+H0344,Grading,Windy,Intermediate,10,35,43.5
+H0345,Grading,Cloudy,Beginner,4,35,51.6
+H0346,Trenching,Sunny,Intermediate,4,45,47.6
+H0347,Demolition,Sunny,Intermediate,8,90,103.3
+H0348,Trenching,Sunny,Intermediate,5,45,50.0
+H0349,Grading,Sunny,Intermediate,2,35,33.8
+H0350,Earth Excavation,Rainy,Beginner,9,60,88.7
+H0351,Earth Excavation,Sunny,Beginner,7,60,78.9
+H0352,Earth Excavation,Windy,Beginner,8,60,96.6
+H0353,Grading,Cloudy,Expert,7,35,37.7
+H0354,Demolition,Cloudy,Intermediate,2,90,99.1
+H0355,Material Loading,Windy,Intermediate,9,30,38.5
+H0356,Trenching,Cloudy,Expert,3,45,44.4
+H0357,Earth Excavation,Sunny,Beginner,10,60,86.5
+H0358,Grading,Windy,Intermediate,6,35,42.6
+H0359,Material Loading,Sunny,Expert,6,30,29.8
+H0360,Trenching,Sunny,Expert,10,45,45.4
+H0361,Trenching,Rainy,Beginner,2,45,66.4
+H0362,Grading,Sunny,Expert,5,35,36.8
+H0363,Material Loading,Cloudy,Beginner,4,30,43.9
+H0364,Material Loading,Cloudy,Expert,2,30,29.7
+H0365,Demolition,Sunny,Expert,10,90,89.2
+H0366,Grading,Cloudy,Expert,7,35,35.4
+H0367,Grading,Windy,Intermediate,3,35,37.5
+H0368,Earth Excavation,Windy,Beginner,5,60,91.2
+H0369,Material Loading,Cloudy,Expert,1,30,30.6
+H0370,Material Loading,Sunny,Beginner,2,30,42.7
+H0371,Grading,Windy,Expert,9,35,38.7
+H0372,Material Loading,Sunny,Intermediate,5,30,32.9
+H0373,Material Loading,Sunny,Intermediate,1,30,29.9
+H0374,Material Loading,Windy,Expert,7,30,33.9
+H0375,Trenching,Sunny,Beginner,4,45,59.5
+H0376,Earth Excavation,Sunny,Expert,7,60,63.1
+H0377,Earth Excavation,Cloudy,Expert,10,60,66.5
+H0378,Demolition,Rainy,Expert,7,90,100.7
+H0379,Demolition,Sunny,Beginner,1,90,114.5
+H0380,Material Loading,Windy,Intermediate,4,30,34.7
+H0381,Demolition,Cloudy,Intermediate,5,90,107.4
+H0382,Earth Excavation,Rainy,Intermediate,2,60,72.2
+H0383,Grading,Sunny,Expert,6,35,33.5
+H0384,Grading,Sunny,Intermediate,2,35,37.5
+H0385,Trenching,Rainy,Expert,4,45,46.4
+H0386,Grading,Cloudy,Intermediate,9,35,41.7
+H0387,Grading,Sunny,Beginner,6,35,52.1
+H0388,Grading,Sunny,Beginner,4,35,49.4
+H0389,Demolition,Rainy,Beginner,7,90,153.8
+H0390,Demolition,Rainy,Intermediate,5,90,103.2
+H0391,Grading,Sunny,Beginner,5,35,52.0
+H0392,Trenching,Sunny,Intermediate,2,45,45.9
+H0393,Material Loading,Rainy,Beginner,10,30,45.3
+H0394,Earth Excavation,Sunny,Intermediate,7,60,67.1
+H0395,Material Loading,Sunny,Expert,9,30,30.0
+H0396,Material Loading,Windy,Expert,4,30,32.8
+H0397,Earth Excavation,Rainy,Intermediate,9,60,79.1
+H0398,Material Loading,Rainy,Beginner,3,30,43.1
+H0399,Demolition,Sunny,Intermediate,2,90,100.6
+H0400,Material Loading,Cloudy,Intermediate,1,30,32.5
+H0401,Material Loading,Sunny,Intermediate,4,30,29.9
+H0402,Grading,Sunny,Beginner,5,35,49.8
+H0403,Material Loading,Windy,Beginner,5,30,48.0
+H0404,Demolition,Windy,Intermediate,9,90,110.4
+H0405,Grading,Sunny,Expert,7,35,32.9
+H0406,Trenching,Sunny,Intermediate,4,45,44.9
+H0407,Demolition,Sunny,Intermediate,8,90,97.3
+H0408,Material Loading,Sunny,Expert,1,30,29.6
+H0409,Trenching,Cloudy,Expert,2,45,43.3
+H0410,Demolition,Windy,Expert,6,90,86.5
+H0411,Trenching,Windy,Expert,8,45,47.2
+H0412,Grading,Sunny,Intermediate,6,35,38.8
+H0413,Trenching,Sunny,Expert,6,45,48.4
+H0414,Material Loading,Cloudy,Expert,8,30,30.8
+H0415,Trenching,Sunny,Beginner,3,45,59.2
+H0416,Trenching,Sunny,Expert,6,45,45.7
+H0417,Trenching,Sunny,Intermediate,10,45,57.0
+H0418,Grading,Windy,Beginner,2,35,48.9
+H0419,Grading,Sunny,Expert,7,35,36.0
+H0420,Demolition,Sunny,Intermediate,8,90,96.1
+H0421,Earth Excavation,Sunny,Expert,1,60,51.3
+H0422,Demolition,Sunny,Intermediate,3,90,94.0
+H0423,Earth Excavation,Rainy,Expert,2,60,59.9
+H0424,Demolition,Rainy,Expert,2,90,88.5
+H0425,Earth Excavation,Sunny,Expert,9,60,60.3
+H0426,Trenching,Cloudy,Beginner,5,45,66.9
+H0427,Earth Excavation,Cloudy,Intermediate,5,60,66.1
+H0428,Grading,Sunny,Expert,2,35,30.4
+H0429,Earth Excavation,Sunny,Expert,8,60,61.1
+H0430,Grading,Sunny,Intermediate,4,35,37.5
+H0431,Grading,Rainy,Beginner,7,35,53.3
+H0432,Grading,Cloudy,Expert,5,35,37.6
+H0433,Trenching,Sunny,Intermediate,1,45,48.0
+H0434,Earth Excavation,Rainy,Intermediate,3,60,72.6
+H0435,Trenching,Rainy,Expert,1,45,46.3
+H0436,Grading,Rainy,Beginner,9,35,58.3
+H0437,Demolition,Sunny,Intermediate,3,90,96.1
+H0438,Trenching,Sunny,Expert,10,45,46.4
+H0439,Material Loading,Cloudy,Expert,1,30,28.1
+H0440,Trenching,Sunny,Beginner,7,45,64.2
+H0441,Demolition,Rainy,Beginner,4,90,143.5
+H0442,Earth Excavation,Rainy,Beginner,4,60,86.7
+H0443,Demolition,Rainy,Intermediate,1,90,91.0
+H0444,Grading,Sunny,Beginner,6,35,52.0
+H0445,Earth Excavation,Sunny,Expert,2,60,53.8
+H0446,Earth Excavation,Cloudy,Beginner,3,60,84.3
+H0447,Demolition,Rainy,Expert,3,90,93.8
+H0448,Earth Excavation,Sunny,Intermediate,9,60,67.6
+H0449,Trenching,Sunny,Intermediate,7,45,48.1
+H0450,Demolition,Sunny,Beginner,3,90,122.9
+H0451,Demolition,Windy,Intermediate,4,90,102.9
+H0452,Trenching,Rainy,Expert,4,45,47.0
+H0453,Demolition,Sunny,Beginner,10,90,123.4
+H0454,Earth Excavation,Rainy,Beginner,8,60,90.3
+H0455,Material Loading,Rainy,Expert,8,30,33.4
+H0456,Earth Excavation,Sunny,Intermediate,3,60,60.6
+H0457,Earth Excavation,Sunny,Beginner,8,60,94.1
+H0458,Material Loading,Rainy,Beginner,3,30,45.7
+H0459,Grading,Cloudy,Beginner,4,35,52.0
+H0460,Trenching,Windy,Intermediate,9,45,55.0
+H0461,Earth Excavation,Windy,Intermediate,4,60,73.5
+H0462,Earth Excavation,Cloudy,Intermediate,6,60,64.9
+H0463,Material Loading,Rainy,Expert,10,30,33.0
+H0464,Grading,Sunny,Beginner,6,35,50.8
+H0465,Material Loading,Rainy,Intermediate,8,30,35.7
+H0466,Demolition,Windy,Beginner,9,90,138.9
+H0467,Material Loading,Rainy,Intermediate,8,30,36.6
+H0468,Demolition,Sunny,Expert,4,90,91.7
+H0469,Trenching,Windy,Intermediate,2,45,51.1
+H0470,Grading,Sunny,Beginner,3,35,49.9
+H0471,Grading,Cloudy,Intermediate,6,35,40.4
+H0472,Demolition,Cloudy,Intermediate,3,90,95.9
+H0473,Trenching,Cloudy,Expert,10,45,49.1
+H0474,Material Loading,Cloudy,Beginner,9,30,49.5
+H0475,Demolition,Windy,Beginner,6,90,132.5
+H0476,Trenching,Sunny,Intermediate,7,45,48.3
+H0477,Trenching,Rainy,Intermediate,10,45,55.6
+H0478,Demolition,Windy,Intermediate,1,90,96.7
+H0479,Grading,Cloudy,Beginner,3,35,50.1
+H0480,Grading,Cloudy,Beginner,3,35,49.6
+H0481,Demolition,Sunny,Expert,9,90,97.5
+H0482,Earth Excavation,Rainy,Beginner,7,60,94.4
+H0483,Trenching,Cloudy,Intermediate,8,45,52.0
+H0484,Trenching,Cloudy,Beginner,9,45,68.5
+H0485,Grading,Windy,Expert,2,35,37.7
+H0486,Material Loading,Sunny,Beginner,5,30,45.7
+H0487,Grading,Sunny,Beginner,2,35,47.5
+H0488,Demolition,Cloudy,Intermediate,9,90,102.8
+H0489,Demolition,Cloudy,Expert,2,90,86.9
+H0490,Grading,Sunny,Intermediate,4,35,35.8
+H0491,Demolition,Rainy,Beginner,7,90,136.9
+H0492,Earth Excavation,Cloudy,Beginner,9,60,88.8
+H0493,Earth Excavation,Rainy,Intermediate,6,60,71.9
+H0494,Material Loading,Sunny,Beginner,8,30,43.6
+H0495,Demolition,Sunny,Expert,3,90,86.2
+H0496,Grading,Sunny,Intermediate,1,35,36.7
+H0497,Trenching,Sunny,Expert,8,45,48.9
+H0498,Material Loading,Sunny,Expert,2,30,30.1
+H0499,Material Loading,Windy,Intermediate,10,30,36.0
+H0500,Material Loading,Cloudy,Expert,7,30,30.0
+H0501,Material Loading,Windy,Intermediate,3,30,34.1
+H0502,Material Loading,Rainy,Intermediate,1,30,31.5
+H0503,Trenching,Cloudy,Beginner,6,45,65.8
+H0504,Trenching,Sunny,Intermediate,7,45,53.1
+H0505,Grading,Sunny,Intermediate,1,35,36.2
+H0506,Earth Excavation,Sunny,Expert,8,60,56.9
+H0507,Material Loading,Cloudy,Expert,4,30,29.2
+H0508,Demolition,Windy,Expert,5,90,90.5
+H0509,Trenching,Cloudy,Intermediate,10,45,51.0
+H0510,Earth Excavation,Sunny,Beginner,2,60,80.2
+H0511,Trenching,Windy,Expert,8,45,46.7
+H0512,Demolition,Windy,Expert,8,90,91.0
+H0513,Trenching,Cloudy,Expert,3,45,45.2
+H0514,Earth Excavation,Sunny,Beginner,1,60,79.2
+H0515,Grading,Windy,Intermediate,7,35,43.3
+H0516,Earth Excavation,Sunny,Expert,7,60,59.7
+H0517,Grading,Sunny,Intermediate,2,35,35.7
+H0518,Grading,Sunny,Expert,4,35,34.4
+H0519,Trenching,Rainy,Expert,6,45,48.4
+H0520,Trenching,Sunny,Intermediate,10,45,54.1
+H0521,Earth Excavation,Sunny,Intermediate,7,60,67.0
+H0522,Demolition,Cloudy,Expert,2,90,83.2
+H0523,Grading,Sunny,Intermediate,8,35,38.6
+H0524,Earth Excavation,Cloudy,Intermediate,2,60,61.2
+H0525,Earth Excavation,Rainy,Intermediate,6,60,72.3
+H0526,Demolition,Sunny,Beginner,1,90,127.7
+H0527,Trenching,Cloudy,Intermediate,9,45,52.5
+H0528,Trenching,Sunny,Intermediate,8,45,49.1
+H0529,Demolition,Sunny,Expert,7,90,99.3
+H0530,Trenching,Rainy,Intermediate,2,45,55.4
+H0531,Demolition,Rainy,Intermediate,5,90,103.1
+H0532,Demolition,Sunny,Intermediate,4,90,98.7
+H0533,Earth Excavation,Sunny,Intermediate,4,60,65.6
+H0534,Trenching,Sunny,Beginner,6,45,61.6
+H0535,Trenching,Windy,Expert,8,45,50.8
+H0536,Material Loading,Rainy,Beginner,4,30,44.7
+H0537,Material Loading,Cloudy,Intermediate,9,30,34.7
+H0538,Earth Excavation,Sunny,Intermediate,2,60,62.8
+H0539,Demolition,Rainy,Expert,2,90,80.4
+H0540,Demolition,Cloudy,Intermediate,8,90,115.5
+H0541,Earth Excavation,Cloudy,Beginner,1,60,82.7
+H0542,Trenching,Rainy,Expert,4,45,51.1
+H0543,Material Loading,Sunny,Beginner,10,30,46.3
+H0544,Earth Excavation,Rainy,Intermediate,8,60,74.1
+H0545,Demolition,Rainy,Beginner,4,90,134.9
+H0546,Grading,Sunny,Expert,8,35,36.9
+H0547,Demolition,Sunny,Expert,6,90,83.7
+H0548,Earth Excavation,Windy,Expert,4,60,59.3
+H0549,Grading,Sunny,Expert,7,35,36.5
+H0550,Earth Excavation,Rainy,Expert,10,60,69.0
+H0551,Material Loading,Sunny,Intermediate,5,30,31.9
+H0552,Earth Excavation,Sunny,Expert,9,60,62.3
+H0553,Demolition,Cloudy,Expert,10,90,101.1
+H0554,Material Loading,Cloudy,Intermediate,7,30,32.2
+H0555,Material Loading,Sunny,Expert,3,30,28.2
+H0556,Trenching,Windy,Beginner,1,45,61.5
+H0557,Trenching,Sunny,Intermediate,6,45,47.4
+H0558,Earth Excavation,Cloudy,Beginner,8,60,99.5
+H0559,Trenching,Windy,Expert,6,45,45.5
+H0560,Trenching,Rainy,Expert,7,45,54.0
+H0561,Material Loading,Cloudy,Expert,2,30,28.7
+H0562,Trenching,Sunny,Intermediate,8,45,51.9
+H0563,Grading,Sunny,Expert,9,35,40.1
+H0564,Demolition,Windy,Beginner,7,90,135.5
+H0565,Earth Excavation,Windy,Intermediate,7,60,68.8
+H0566,Grading,Sunny,Beginner,1,35,42.7
+H0567,Demolition,Sunny,Intermediate,3,90,92.3
+H0568,Demolition,Sunny,Beginner,8,90,127.2
+H0569,Earth Excavation,Sunny,Beginner,5,60,81.6
+H0570,Grading,Rainy,Intermediate,3,35,42.7
+H0571,Earth Excavation,Sunny,Beginner,9,60,91.5
+H0572,Trenching,Sunny,Intermediate,10,45,51.6
+H0573,Earth Excavation,Cloudy,Expert,5,60,58.9
+H0574,Demolition,Windy,Expert,2,90,96.8
+H0575,Grading,Sunny,Beginner,4,35,48.2
+H0576,Material Loading,Windy,Beginner,7,30,45.6
+H0577,Trenching,Cloudy,Expert,1,45,42.9
+H0578,Grading,Cloudy,Intermediate,10,35,42.2
+H0579,Grading,Cloudy,Expert,8,35,38.4
+H0580,Grading,Rainy,Beginner,10,35,56.4
+H0581,Material Loading,Windy,Expert,4,30,30.2
+H0582,Grading,Sunny,Intermediate,1,35,37.8
+H0583,Trenching,Windy,Beginner,7,45,66.1
+H0584,Earth Excavation,Windy,Beginner,9,60,91.9
+H0585,Material Loading,Sunny,Intermediate,1,30,30.8
+H0586,Demolition,Rainy,Expert,2,90,91.5
+H0587,Demolition,Sunny,Expert,8,90,97.4
+H0588,Grading,Cloudy,Expert,8,35,37.1
+H0589,Demolition,Windy,Expert,10,90,105.3
+H0590,Earth Excavation,Windy,Expert,4,60,61.8
+H0591,Demolition,Sunny,Beginner,1,90,119.9
+H0592,Grading,Windy,Expert,7,35,37.1
+H0593,Demolition,Rainy,Intermediate,9,90,112.0
+H0594,Trenching,Rainy,Expert,10,45,53.4
+H0595,Material Loading,Cloudy,Intermediate,4,30,33.6
+H0596,Trenching,Windy,Intermediate,1,45,45.6
+H0597,Earth Excavation,Sunny,Intermediate,2,60,65.3
+H0598,Demolition,Sunny,Intermediate,5,90,94.4
+H0599,Material Loading,Rainy,Intermediate,9,30,36.3
+H0600,Trenching,Windy,Beginner,9,45,70.6
+H0601,Earth Excavation,Sunny,Beginner,3,60,80.1
+H0602,Material Loading,Rainy,Intermediate,4,30,35.8
+H0603,Trenching,Sunny,Expert,6,45,44.9
+H0604,Grading,Cloudy,Expert,3,35,34.2
+H0605,Trenching,Cloudy,Intermediate,2,45,48.0
+H0606,Demolition,Cloudy,Intermediate,5,90,101.9
+H0607,Demolition,Sunny,Beginner,8,90,125.9
+H0608,Grading,Sunny,Intermediate,7,35,37.7
+H0609,Grading,Rainy,Expert,8,35,40.7
+H0610,Earth Excavation,Windy,Beginner,6,60,90.6
+H0611,Demolition,Rainy,Beginner,10,90,143.4
+H0612,Material Loading,Sunny,Beginner,6,30,43.2
+H0613,Grading,Windy,Intermediate,2,35,37.0
+H0614,Grading,Cloudy,Expert,10,35,38.9
+H0615,Earth Excavation,Sunny,Intermediate,8,60,66.1
+H0616,Trenching,Sunny,Beginner,7,45,64.3
+H0617,Grading,Sunny,Expert,8,35,36.2
+H0618,Demolition,Cloudy,Beginner,10,90,150.1
+H0619,Trenching,Cloudy,Intermediate,7,45,53.9
+H0620,Grading,Cloudy,Intermediate,3,35,38.4
+H0621,Material Loading,Sunny,Intermediate,4,30,31.1
+H0622,Grading,Windy,Intermediate,7,35,41.2
+H0623,Grading,Rainy,Beginner,4,35,54.6
+H0624,Trenching,Rainy,Beginner,1,45,61.7
+H0625,Demolition,Cloudy,Beginner,9,90,142.4
+H0626,Earth Excavation,Windy,Expert,5,60,60.7
+H0627,Earth Excavation,Windy,Beginner,3,60,87.7
+H0628,Trenching,Cloudy,Beginner,10,45,70.6
+H0629,Earth Excavation,Windy,Beginner,2,60,84.5
+H0630,Material Loading,Sunny,Beginner,10,30,45.1
+H0631,Earth Excavation,Cloudy,Intermediate,7,60,72.2
+H0632,Demolition,Sunny,Expert,6,90,92.5
+H0633,Trenching,Sunny,Expert,9,45,48.9
+H0634,Grading,Cloudy,Beginner,6,35,47.0
+H0635,Demolition,Rainy,Intermediate,10,90,110.2
+H0636,Earth Excavation,Sunny,Intermediate,10,60,70.3
+H0637,Earth Excavation,Sunny,Intermediate,9,60,74.2
+H0638,Trenching,Cloudy,Intermediate,9,45,52.5
+H0639,Material Loading,Rainy,Beginner,2,30,45.5
+H0640,Grading,Cloudy,Expert,10,35,42.0
+H0641,Earth Excavation,Cloudy,Intermediate,3,60,66.6
+H0642,Grading,Rainy,Intermediate,10,35,41.3
+H0643,Earth Excavation,Windy,Intermediate,9,60,73.4
+H0644,Demolition,Sunny,Expert,5,90,87.5
+H0645,Earth Excavation,Cloudy,Intermediate,4,60,67.5
+H0646,Earth Excavation,Sunny,Intermediate,1,60,59.1
+H0647,Material Loading,Rainy,Intermediate,5,30,32.7
+H0648,Demolition,Rainy,Expert,8,90,98.3
+H0649,Earth Excavation,Cloudy,Beginner,10,60,90.5
+H0650,Earth Excavation,Rainy,Intermediate,1,60,67.4
+H0651,Trenching,Sunny,Beginner,10,45,66.8
+H0652,Material Loading,Sunny,Intermediate,3,30,33.7
+H0653,Grading,Sunny,Expert,9,35,37.2
+H0654,Demolition,Windy,Intermediate,7,90,111.2
+H0655,Material Loading,Sunny,Expert,7,30,31.9
+H0656,Material Loading,Rainy,Intermediate,4,30,36.4
+H0657,Material Loading,Sunny,Expert,1,30,27.7
+H0658,Grading,Cloudy,Intermediate,5,35,39.7
+H0659,Earth Excavation,Rainy,Expert,3,60,62.1
+H0660,Demolition,Windy,Expert,5,90,88.1
+H0661,Material Loading,Rainy,Expert,6,30,30.5
+H0662,Demolition,Rainy,Expert,1,90,87.0
+H0663,Grading,Rainy,Intermediate,6,35,42.7
+H0664,Grading,Sunny,Expert,5,35,35.9
+H0665,Material Loading,Sunny,Beginner,5,30,40.1
+H0666,Earth Excavation,Sunny,Expert,9,60,64.0
+H0667,Material Loading,Rainy,Beginner,6,30,45.7
+H0668,Trenching,Cloudy,Expert,4,45,45.8
+H0669,Demolition,Sunny,Expert,1,90,81.3
+H0670,Material Loading,Windy,Expert,4,30,34.0
+H0671,Demolition,Windy,Intermediate,7,90,113.3
+H0672,Material Loading,Cloudy,Intermediate,7,30,32.6
+H0673,Trenching,Windy,Expert,3,45,46.0
+H0674,Grading,Cloudy,Beginner,3,35,50.3
+H0675,Trenching,Sunny,Beginner,5,45,64.3
+H0676,Material Loading,Rainy,Intermediate,5,30,37.6
+H0677,Grading,Rainy,Intermediate,7,35,44.4
+H0678,Earth Excavation,Sunny,Intermediate,9,60,65.7
+H0679,Demolition,Windy,Intermediate,1,90,99.9
+H0680,Material Loading,Cloudy,Beginner,4,30,43.9
+H0681,Earth Excavation,Cloudy,Expert,9,60,63.5
+H0682,Earth Excavation,Cloudy,Expert,3,60,57.2
+H0683,Trenching,Sunny,Expert,10,45,48.0
+H0684,Trenching,Sunny,Intermediate,10,45,53.8
+H0685,Material Loading,Sunny,Intermediate,2,30,30.9
+H0686,Material Loading,Cloudy,Expert,9,30,31.4
+H0687,Grading,Cloudy,Expert,7,35,38.2
+H0688,Trenching,Rainy,Intermediate,5,45,51.6
+H0689,Trenching,Cloudy,Intermediate,7,45,50.6
+H0690,Grading,Windy,Expert,5,35,34.7
+H0691,Earth Excavation,Sunny,Beginner,9,60,84.3
+H0692,Earth Excavation,Sunny,Beginner,6,60,86.5
+H0693,Grading,Rainy,Intermediate,3,35,41.2
+H0694,Grading,Sunny,Intermediate,1,35,33.9
+H0695,Earth Excavation,Sunny,Intermediate,1,60,60.2
+H0696,Trenching,Rainy,Beginner,5,45,72.5
+H0697,Trenching,Sunny,Expert,8,45,43.7
+H0698,Earth Excavation,Sunny,Intermediate,10,60,70.9
+H0699,Grading,Sunny,Expert,5,35,33.3
+H0700,Earth Excavation,Cloudy,Intermediate,2,60,62.6
+H0701,Material Loading,Rainy,Expert,7,30,32.3
+H0702,Earth Excavation,Windy,Beginner,4,60,86.2
+H0703,Earth Excavation,Cloudy,Expert,5,60,59.7
+H0704,Trenching,Sunny,Intermediate,1,45,44.6
+H0705,Earth Excavation,Sunny,Expert,10,60,63.3
+H0706,Demolition,Sunny,Beginner,5,90,132.5
+H0707,Trenching,Cloudy,Intermediate,6,45,52.5
+H0708,Material Loading,Rainy,Beginner,10,30,48.6
+H0709,Earth Excavation,Cloudy,Beginner,2,60,81.9
+H0710,Trenching,Sunny,Expert,7,45,45.1
+H0711,Trenching,Cloudy,Expert,1,45,45.1
+H0712,Grading,Sunny,Beginner,4,35,47.0
+H0713,Demolition,Sunny,Intermediate,1,90,87.9
+H0714,Grading,Cloudy,Intermediate,3,35,37.8
+H0715,Trenching,Cloudy,Expert,6,45,47.0
+H0716,Earth Excavation,Rainy,Expert,4,60,71.0
+H0717,Earth Excavation,Windy,Beginner,2,60,82.9
+H0718,Grading,Windy,Expert,9,35,39.9
+H0719,Demolition,Windy,Expert,3,90,86.8
+H0720,Grading,Rainy,Beginner,6,35,52.9
+H0721,Trenching,Cloudy,Intermediate,1,45,43.7
+H0722,Earth Excavation,Cloudy,Intermediate,7,60,69.7
+H0723,Demolition,Rainy,Intermediate,1,90,95.1
+H0724,Earth Excavation,Sunny,Expert,8,60,61.3
+H0725,Material Loading,Sunny,Intermediate,1,30,32.8
+H0726,Earth Excavation,Cloudy,Beginner,3,60,87.5
+H0727,Grading,Windy,Intermediate,10,35,41.7
+H0728,Trenching,Cloudy,Intermediate,7,45,53.2
+H0729,Trenching,Sunny,Beginner,1,45,60.0
+H0730,Demolition,Rainy,Expert,2,90,93.8
+H0731,Material Loading,Cloudy,Intermediate,7,30,33.9
+H0732,Trenching,Sunny,Intermediate,1,45,46.8
+H0733,Earth Excavation,Cloudy,Expert,5,60,57.2
+H0734,Earth Excavation,Sunny,Intermediate,7,60,65.2
+H0735,Trenching,Windy,Beginner,7,45,61.0
+H0736,Earth Excavation,Cloudy,Expert,10,60,65.2
+H0737,Grading,Sunny,Intermediate,6,35,36.9
+H0738,Earth Excavation,Sunny,Beginner,9,60,87.5
+H0739,Material Loading,Cloudy,Expert,1,30,29.3
+H0740,Grading,Rainy,Expert,1,35,34.8
+H0741,Grading,Sunny,Expert,7,35,34.7
+H0742,Grading,Sunny,Expert,1,35,32.0
+H0743,Material Loading,Sunny,Intermediate,4,30,33.3
+H0744,Trenching,Cloudy,Expert,8,45,47.6
+H0745,Material Loading,Cloudy,Intermediate,6,30,35.4
+H0746,Grading,Rainy,Intermediate,3,35,40.8
+H0747,Material Loading,Sunny,Beginner,10,30,44.5
+H0748,Demolition,Rainy,Intermediate,7,90,101.5
+H0749,Demolition,Cloudy,Expert,1,90,86.5
+H0750,Grading,Rainy,Intermediate,4,35,38.5
+H0751,Grading,Sunny,Beginner,2,35,50.7
+H0752,Trenching,Cloudy,Intermediate,10,45,53.6
+H0753,Grading,Cloudy,Intermediate,5,35,40.8
+H0754,Demolition,Sunny,Intermediate,3,90,90.3
+H0755,Grading,Cloudy,Beginner,5,35,47.6
+H0756,Earth Excavation,Windy,Expert,4,60,56.0
+H0757,Earth Excavation,Sunny,Intermediate,8,60,67.3
+H0758,Material Loading,Windy,Beginner,6,30,44.2
+H0759,Material Loading,Rainy,Intermediate,6,30,34.9
+H0760,Trenching,Cloudy,Beginner,3,45,68.1
+H0761,Trenching,Rainy,Intermediate,3,45,53.1
+H0762,Earth Excavation,Sunny,Expert,6,60,58.5
+H0763,Material Loading,Rainy,Expert,7,30,33.4
+H0764,Earth Excavation,Sunny,Intermediate,8,60,68.2
+H0765,Material Loading,Sunny,Beginner,4,30,42.7
+H0766,Grading,Cloudy,Beginner,5,35,49.5
+H0767,Grading,Rainy,Intermediate,5,35,43.0
+H0768,Earth Excavation,Windy,Beginner,3,60,88.2
+H0769,Demolition,Sunny,Intermediate,5,90,97.1
+H0770,Grading,Sunny,Expert,4,35,33.7
+H0771,Trenching,Sunny,Expert,1,45,41.9
+H0772,Grading,Windy,Intermediate,4,35,39.2
+H0773,Earth Excavation,Cloudy,Intermediate,8,60,71.5
+H0774,Trenching,Cloudy,Expert,1,45,42.4
+H0775,Trenching,Sunny,Expert,9,45,47.4
+H0776,Earth Excavation,Sunny,Expert,6,60,65.6
+H0777,Demolition,Rainy,Beginner,3,90,130.1
+H0778,Earth Excavation,Sunny,Expert,10,60,65.0
+H0779,Material Loading,Sunny,Intermediate,6,30,34.2
+H0780,Trenching,Sunny,Expert,7,45,44.8
+H0781,Material Loading,Sunny,Intermediate,1,30,31.3
+H0782,Material Loading,Rainy,Intermediate,1,30,32.5
+H0783,Demolition,Cloudy,Intermediate,7,90,101.6
+H0784,Trenching,Sunny,Beginner,3,45,62.4
+H0785,Demolition,Windy,Expert,4,90,99.5
+H0786,Demolition,Sunny,Expert,10,90,96.3
+H0787,Demolition,Sunny,Beginner,3,90,116.8
+H0788,Earth Excavation,Rainy,Beginner,10,60,102.3
+H0789,Earth Excavation,Windy,Beginner,3,60,80.9
+H0790,Material Loading,Sunny,Expert,3,30,28.4
+H0791,Grading,Cloudy,Expert,6,35,35.3
+H0792,Trenching,Sunny,Expert,2,45,40.5
+H0793,Material Loading,Sunny,Intermediate,4,30,33.1
+H0794,Trenching,Cloudy,Intermediate,8,45,51.9
+H0795,Trenching,Rainy,Beginner,4,45,74.5
+H0796,Grading,Windy,Intermediate,9,35,41.8
+H0797,Trenching,Sunny,Beginner,3,45,62.0
+H0798,Material Loading,Rainy,Beginner,9,30,47.7
+H0799,Trenching,Sunny,Intermediate,8,45,52.1
+H0800,Material Loading,Rainy,Expert,10,30,33.4
+H0801,Material Loading,Sunny,Intermediate,9,30,35.1
+H0802,Trenching,Rainy,Intermediate,7,45,57.8
+H0803,Trenching,Cloudy,Expert,6,45,46.9
+H0804,Demolition,Sunny,Expert,4,90,86.4
+H0805,Grading,Cloudy,Intermediate,10,35,41.6
+H0806,Demolition,Windy,Expert,7,90,102.9
+H0807,Grading,Sunny,Intermediate,2,35,34.3
+H0808,Grading,Sunny,Beginner,8,35,51.1
+H0809,Material Loading,Cloudy,Expert,9,30,32.7
+H0810,Demolition,Cloudy,Intermediate,7,90,100.7
+H0811,Material Loading,Cloudy,Expert,2,30,29.1
+H0812,Trenching,Rainy,Beginner,2,45,66.0
+H0813,Trenching,Cloudy,Intermediate,8,45,50.7
+H0814,Material Loading,Sunny,Beginner,9,30,45.3
+H0815,Demolition,Cloudy,Expert,1,90,87.9
+H0816,Earth Excavation,Cloudy,Beginner,5,60,87.7
+H0817,Trenching,Sunny,Intermediate,4,45,46.6
+H0818,Earth Excavation,Windy,Expert,5,60,63.2
+H0819,Demolition,Sunny,Expert,8,90,95.6
+H0820,Trenching,Rainy,Intermediate,3,45,50.4
+H0821,Trenching,Cloudy,Expert,9,45,49.2
+H0822,Trenching,Rainy,Expert,5,45,46.5
+H0823,Grading,Cloudy,Beginner,10,35,50.3
+H0824,Trenching,Sunny,Beginner,4,45,63.3
+H0825,Trenching,Sunny,Intermediate,3,45,49.7
+H0826,Demolition,Windy,Expert,5,90,92.6
+H0827,Material Loading,Sunny,Beginner,4,30,42.7
+H0828,Earth Excavation,Sunny,Intermediate,8,60,68.7
+H0829,Trenching,Windy,Beginner,2,45,67.0
+H0830,Earth Excavation,Sunny,Expert,7,60,64.8
+H0831,Grading,Sunny,Expert,9,35,37.6
+H0832,Earth Excavation,Sunny,Beginner,7,60,88.8
+H0833,Demolition,Cloudy,Beginner,10,90,144.9
+H0834,Trenching,Cloudy,Expert,1,45,42.3
+H0835,Demolition,Windy,Expert,3,90,92.1
+H0836,Earth Excavation,Rainy,Beginner,7,60,99.9
+H0837,Earth Excavation,Sunny,Expert,7,60,56.3
+H0838,Trenching,Windy,Intermediate,10,45,55.2
+H0839,Grading,Cloudy,Intermediate,8,35,39.3
+H0840,Earth Excavation,Rainy,Beginner,4,60,88.9
+H0841,Earth Excavation,Rainy,Beginner,9,60,96.9
+H0842,Trenching,Windy,Beginner,4,45,65.0
+H0843,Demolition,Sunny,Intermediate,1,90,90.5
+H0844,Grading,Sunny,Intermediate,9,35,39.9
+H0845,Demolition,Sunny,Intermediate,1,90,92.0
+H0846,Grading,Sunny,Beginner,9,35,52.2
+H0847,Grading,Windy,Expert,6,35,37.8
+H0848,Material Loading,Rainy,Expert,10,30,33.7
+H0849,Demolition,Rainy,Expert,7,90,106.0
+H0850,Trenching,Sunny,Expert,9,45,45.2
+H0851,Earth Excavation,Cloudy,Intermediate,7,60,66.6
+H0852,Material Loading,Rainy,Beginner,1,30,40.0
+H0853,Trenching,Sunny,Expert,8,45,47.1
+H0854,Trenching,Cloudy,Intermediate,5,45,51.2
+H0855,Material Loading,Cloudy,Intermediate,7,30,34.9
+H0856,Trenching,Sunny,Beginner,4,45,65.9
+H0857,Earth Excavation,Sunny,Expert,8,60,61.5
+H0858,Grading,Sunny,Intermediate,10,35,40.4
+H0859,Trenching,Windy,Intermediate,4,45,49.2
+H0860,Trenching,Sunny,Intermediate,10,45,52.4
+H0861,Earth Excavation,Sunny,Intermediate,2,60,61.8
+H0862,Grading,Sunny,Expert,8,35,33.3
+H0863,Earth Excavation,Cloudy,Intermediate,6,60,62.8
+H0864,Demolition,Cloudy,Expert,6,90,94.1
+H0865,Earth Excavation,Sunny,Intermediate,3,60,58.8
+H0866,Grading,Sunny,Expert,3,35,35.0
+H0867,Demolition,Sunny,Intermediate,8,90,103.4
+H0868,Demolition,Cloudy,Expert,2,90,85.9
+H0869,Demolition,Sunny,Expert,10,90,92.3
+H0870,Material Loading,Sunny,Beginner,5,30,38.0
+H0871,Earth Excavation,Rainy,Beginner,5,60,89.4
+H0872,Grading,Windy,Beginner,5,35,48.2
+H0873,Grading,Sunny,Intermediate,10,35,37.2
+H0874,Material Loading,Sunny,Beginner,3,30,40.7
+H0875,Trenching,Sunny,Expert,10,45,50.6
+H0876,Material Loading,Sunny,Beginner,10,30,44.4
+H0877,Trenching,Windy,Expert,10,45,50.1
+H0878,Material Loading,Cloudy,Expert,2,30,29.7
+H0879,Material Loading,Sunny,Expert,6,30,31.8
+H0880,Material Loading,Sunny,Expert,2,30,28.4
+H0881,Demolition,Cloudy,Expert,5,90,93.9
+H0882,Earth Excavation,Cloudy,Expert,4,60,59.1
+H0883,Material Loading,Sunny,Intermediate,1,30,30.6
+H0884,Material Loading,Sunny,Intermediate,9,30,35.5
+H0885,Earth Excavation,Sunny,Beginner,9,60,86.9
+H0886,Material Loading,Sunny,Beginner,3,30,39.8
+H0887,Trenching,Sunny,Intermediate,3,45,48.3
+H0888,Earth Excavation,Cloudy,Intermediate,9,60,69.2
+H0889,Trenching,Rainy,Intermediate,7,45,55.6
+H0890,Trenching,Sunny,Expert,8,45,46.0
+H0891,Material Loading,Rainy,Intermediate,10,30,36.5
+H0892,Demolition,Cloudy,Intermediate,2,90,94.7
+H0893,Grading,Cloudy,Beginner,1,35,46.2
+H0894,Trenching,Sunny,Intermediate,4,45,45.3
+H0895,Material Loading,Rainy,Intermediate,5,30,35.2
+H0896,Material Loading,Rainy,Beginner,8,30,47.2
+H0897,Trenching,Cloudy,Beginner,2,45,64.8
+H0898,Material Loading,Sunny,Beginner,7,30,45.1
+H0899,Earth Excavation,Windy,Beginner,6,60,85.3
+L905,Trenching,Cloudy,Intermediate,4,45,52.0
+L906,Grading,Cloudy,Intermediate,4,35,27.0

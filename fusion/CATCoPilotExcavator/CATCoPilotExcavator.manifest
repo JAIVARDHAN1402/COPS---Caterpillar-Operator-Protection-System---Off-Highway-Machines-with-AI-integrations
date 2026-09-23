@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "author": "COPS team",
+  "description": {
+    "": "Builds a twin-ready excavator (nested components with pivots at the joints) for the COPS Digital Twin."
+  },
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}

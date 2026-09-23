@@ -1,0 +1,9 @@
+backend/.venv/
+backend/data/state.json
+__pycache__/
+frontend/node_modules/
+frontend/dist/
+backend/data/state.tmp
+.claude/
+*.log
+.env
