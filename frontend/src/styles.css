@@ -147,7 +147,7 @@ input[type='range'] { width: 100%; accent-color: var(--yellow); height: 32px; }
 
 .score-ring { display: flex; align-items: center; gap: 10px; cursor: pointer; background: none; border: none; padding: 0; }
 .score-ring svg { display: block; }
-.score-pop { position: absolute; top: 64px; z-index: 30; width: 300px; }
+.score-pop { position: fixed; z-index: 60; max-height: calc(100vh - 100px); overflow-y: auto; box-shadow: 0 14px 40px rgba(0,0,0,.55); }
 
 /* ---------- alert banner ---------- */
 .alert-banner {
@@ -230,7 +230,6 @@ input[type='range'] { width: 100%; accent-color: var(--yellow); height: 32px; }
   .topbar { padding: 10px 12px; gap: 10px; }
   .topbar .spacer { display: none; }
   .transcript { width: min(320px, calc(100vw - 32px)); }
-  .score-pop { right: auto !important; left: 0; width: min(300px, calc(100vw - 32px)); }
 }
 
 /* ---------- heritage extras ---------- */
@@ -296,6 +295,7 @@ input[type='range'] { width: 100%; accent-color: var(--yellow); height: 32px; }
 .coach.win { border-left-color: var(--green); }
 .coach.fix { border-left-color: var(--red); }
 .coach.tip { border-left-color: var(--blue); }
+.coach.warn { border-left-color: var(--amber); }
 .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; text-align: center; font-size: 12px; }
 .loop > div { padding: 10px 6px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--line); position: relative; }
 .loop b { display: block; font-size: 20px; }
@@ -328,3 +328,92 @@ input[type='range'] { width: 100%; accent-color: var(--yellow); height: 32px; }
   border: 2px solid var(--line); color: var(--muted); background: var(--panel-2);
 }
 .engine.on { border-color: var(--yellow); color: var(--yellow-ink); background: var(--yellow); }
+
+/* ---------- machine health ---------- */
+.gauge.warn { border-color: color-mix(in srgb, var(--amber) 60%, var(--line)); }
+.gauge.crit { border-color: var(--red); box-shadow: 0 0 0 1px var(--red) inset; animation: flash 0.9s infinite alternate; }
+.gauge-bar { position: relative; height: 10px; border-radius: 99px; background: var(--panel-2); margin-top: 8px; overflow: visible; }
+.gauge-bar .fill { height: 100%; border-radius: 99px; transition: width .6s ease; }
+.gauge-bar .mark { position: absolute; top: -3px; width: 2px; height: 16px; }
+.gauge-bar .mark.warn { background: var(--amber); }
+.gauge-bar .mark.crit { background: var(--red); }
+.mini-gauges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+.mini { padding: 6px 8px; border-radius: 8px; background: var(--panel-2); border: 1px solid var(--line); display: flex; flex-direction: column; }
+.mini.warn { border-color: var(--amber); }
+.mini.crit { border-color: var(--red); color: var(--red); }
+
+/* ---------- black-box replay ---------- */
+.replay-hud { position: absolute; left: 12px; top: 12px; z-index: 5; background: rgba(0,0,0,.72); padding: 10px; border-radius: 10px; max-width: calc(100% - 24px); }
+.replay-bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--panel-2); border-top: 1px solid var(--line); flex-wrap: wrap; }
+.replay-track { position: relative; flex: 1; min-width: 160px; }
+.replay-track input { width: 100%; }
+.replay-marker { position: absolute; top: -12px; transform: translateX(-50%); color: var(--red); font-size: 12px; pointer-events: none; }
+.active-rec { border-color: var(--yellow); }
+
+/* ---------- emergency / SOS ---------- */
+.overlay.emergency { background: rgba(120, 0, 0, 0.82); z-index: 90; }
+.overlay.emergency.checkin { background: rgba(60, 45, 0, 0.8); }
+.emergency-card { text-align: center; border: 3px solid var(--red); width: min(520px, 100%); }
+.overlay.checkin .emergency-card { border-color: var(--amber); }
+.emergency-title { font-size: 34px; font-weight: 900; font-family: 'Arial Black', Inter, sans-serif; letter-spacing: 1px; }
+.countdown { font-size: 72px; font-weight: 800; color: var(--red); line-height: 1.1; margin: 10px 0; }
+.overlay.checkin .countdown { color: var(--amber); }
+.btn.big { min-height: 64px; font-size: 19px; padding: 0 26px; }
+.sos-big { width: 100%; min-height: 86px; font-size: 26px; font-weight: 900; letter-spacing: 1px; border-radius: 16px; }
+.sos-btn { background: var(--red); color: #fff; border-color: var(--red); font-weight: 900; }
+.sos-banner { background: #b00000; animation: flash 0.6s infinite alternate; flex-wrap: wrap; }
+.sos-card { padding: 14px; border-radius: 12px; border: 2px solid var(--red); background: color-mix(in srgb, var(--red) 12%, var(--panel)); margin-top: 10px; }
+.sos-card.active { animation: flash 0.8s infinite alternate; }
+.sos-card.acknowledged { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 10%, var(--panel)); }
+
+/* ---------- ASK COPS assistant ---------- */
+.askcops-fab {
+  position: fixed; right: 20px; bottom: 20px; z-index: 70; display: flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 12px 18px; border-radius: 99px; border: none; background: var(--yellow); color: var(--yellow-ink); font-weight: 900;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+.askcops-panel { position: fixed; right: 20px; bottom: 20px; z-index: 70; width: min(400px, calc(100vw - 32px)); height: min(600px, calc(100vh - 100px));
+  display: flex; flex-direction: column; padding: 0; overflow: hidden; box-shadow: 0 18px 50px rgba(0,0,0,.6); border-color: var(--yellow); }
+.askcops-head { padding: 12px 14px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.askcops-list { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.bubble { max-width: 88%; padding: 10px 12px; border-radius: 14px; font-size: 14px; line-height: 1.45; }
+.bubble.assistant { background: var(--panel-2); border: 1px solid var(--line); align-self: flex-start; border-bottom-left-radius: 4px; }
+.bubble.user { background: var(--yellow); color: var(--yellow-ink); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 600; }
+.askcops-suggest { padding: 0 12px 8px; gap: 6px; }
+.askcops-suggest .btn { font-size: 12px; min-height: 30px; }
+.askcops-input { padding: 10px; border-top: 1px solid var(--line); gap: 8px; }
+.askcops-input input { min-height: 44px; }
+@media (max-width: 720px) { .askcops-fab span:last-child { display: none; } }
+.sms-text { margin-top: 6px; padding: 8px 10px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.45; white-space: pre-wrap; }
+
+/* ---------- SOS picker + self-handling ---------- */
+.sos-picker { width: min(760px, 100%); }
+.picker-section { margin-top: 14px; padding: 14px; border-radius: 12px; border: 2px solid var(--line); }
+.picker-section.high { border-color: var(--red); background: color-mix(in srgb, var(--red) 8%, var(--panel)); }
+.picker-section.manage { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 6%, var(--panel)); }
+.picker-head { font-weight: 800; margin-bottom: 10px; }
+.picker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 8px; }
+.picker-grid .btn { min-height: 58px; justify-content: flex-start; text-align: left; }
+.self-handle { flex-wrap: wrap; gap: 10px; }
+
+/* ---------- shift report ---------- */
+.util-bar { display: flex; height: 30px; border-radius: 10px; overflow: hidden; background: var(--panel-2); border: 1px solid var(--line); }
+.util-bar > div { display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 12px; font-weight: 800; white-space: nowrap; transition: width .6s ease; }
+.util-bar .empty { flex: 1; color: var(--muted); font-weight: 600; }
+.util-bar .work { background: var(--green); color: #06210f; }
+.util-bar .idle { background: repeating-linear-gradient(-45deg, var(--amber) 0 10px, #d98a1f 10px 20px); color: #1a1000; }
+.timeline { max-height: 420px; overflow: auto; }
+.tl-item { display: grid; grid-template-columns: 72px 26px 1fr; gap: 8px; align-items: baseline; padding: 6px 4px; border-bottom: 1px solid var(--line); }
+.tl-item.sos, .tl-item.machine_stop { background: color-mix(in srgb, var(--red) 10%, transparent); }
+.tl-item.idle { background: color-mix(in srgb, var(--amber) 8%, transparent); }
+@media print {
+  .topbar, .tabs, .footer, .askcops-fab, .askcops-panel, .no-print, .alert-banner { display: none !important; }
+  body, .card { background: #fff !important; color: #000 !important; }
+  .card { border: 1px solid #999 !important; break-inside: avoid; }
+}
+.sos-card.self_handling { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 8%, var(--panel)); animation: none; }
+
+/* ---------- live safety score ---------- */
+.score-ring.paused { opacity: 0.85; }
+.paused-ring { width: 48px; height: 48px; border-radius: 50%; border: 5px solid var(--line); display: grid; place-items: center; color: var(--muted); font-size: 18px; }
+.live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); margin-right: 4px; vertical-align: middle; animation: pulse 1.2s infinite; }

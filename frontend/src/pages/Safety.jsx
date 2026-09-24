@@ -282,7 +282,7 @@ function IncidentLogger({ opId, machineId, draftFromVoice, notify, onSaved }) {
     speak('Incident report submitted.', { force: true })
     setDraft(null)
     setText('')
-    onSaved()
+    onSaved(inc)
   }
 
   const sevClass = { Low: 'good', Medium: 'warn', High: 'bad', Critical: 'bad' }
@@ -339,7 +339,7 @@ function IncidentLogger({ opId, machineId, draftFromVoice, notify, onSaved }) {
 }
 
 // ------------------------------------------------------------------------
-export default function Safety({ opId, machineId, onFatigue, seatbelt, beltLevel, ladder, machineWorking, onProximity, incidentDraft, notify, refreshProfile, visible }) {
+export default function Safety({ onIncident, opId, machineId, onFatigue, seatbelt, beltLevel, ladder, machineWorking, onProximity, incidentDraft, notify, refreshProfile, visible }) {
   const [events, setEvents] = useState([])
   const [incidents, setIncidents] = useState([])
   const [autoDraft, setAutoDraft] = useState(null)
@@ -408,7 +408,7 @@ export default function Safety({ opId, machineId, onFatigue, seatbelt, beltLevel
         </div>
       </div>
 
-      <IncidentLogger opId={opId} machineId={machineId} draftFromVoice={autoDraft} notify={notify} onSaved={() => { load(); refreshProfile() }} />
+      <IncidentLogger opId={opId} machineId={machineId} draftFromVoice={autoDraft} notify={notify} onSaved={(inc) => { load(); refreshProfile(); if (inc) onIncident?.(inc) }} />
 
       <div className="card">
         <h3>🗂️ Incident log</h3>

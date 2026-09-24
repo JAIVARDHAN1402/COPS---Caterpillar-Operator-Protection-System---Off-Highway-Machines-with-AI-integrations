@@ -4,6 +4,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
+import { api } from '../api'
+import { TRIGGER_LABEL } from '../blackbox'
 import { CHECKLIST } from '../components'
 
 /*
@@ -154,7 +156,11 @@ const looksLikeModel = (buf, ext) => {
   return ext === 'fbx' ? head.startsWith('Kaydara FBX') || head.startsWith('; FBX') : head.startsWith('glTF')
 }
 
-export default function Twin({ schedule, profile, seatbelt, engineOn, proximity, fatigue, checks, toggleCheck, onProximity, notify }) {
+export default function Twin({
+  schedule, profile, seatbelt = 'Fastened', engineOn = false, proximity = { level: 'clear' }, fatigue = { level: 'off' },
+  checks = [], toggleCheck = () => {}, onProximity = () => {}, notify, digRef, tilt = 0, health, machineId,
+  replayOnly = false, initialReplay = null,
+}) {
   const mountRef = useRef(null)
   const labelRefs = useRef([])
   const three = useRef({})
@@ -166,6 +172,13 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
   const [dragOver, setDragOver] = useState(false)
   const lastFile = useRef(null)
   const simRef = useRef(null)
+  // black-box replay
+  const [recs, setRecs] = useState([])
+  const [rec, setRec] = useState(initialReplay)
+  const [idx, setIdx] = useState(0)
+  const [playing, setPlaying] = useState(!!initialReplay)
+  const [speed, setSpeed] = useState(1)
+  const frame = rec?.frames?.[Math.min(idx, rec.frames.length - 1)]
 
   const activeTask = schedule?.tasks.find((t) => t.status === 'in_progress')
   const blockers = []
@@ -175,7 +188,39 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
   const working = !!activeTask && engineOn
   const frozen = working && blockers.length > 0
 
-  live.current = { working, frozen, engineOn, proximity, fatigue, checks, view, skill: profile?.skill || 'Intermediate', idleS }
+  const overheat = health?.channels?.some((c) => c.key === 'engine_temp' && c.status !== 'ok' && c.status !== 'off')
+  live.current = frame
+    ? { replay: true, dig: frame.dig, working: frame.working, frozen: frame.frozen, engineOn: frame.engineOn,
+      proximity: frame.prox || { level: 'clear' }, fatigue: frame.fatigue || { level: 'off' }, checks: [], view,
+      skill: profile?.skill || 'Intermediate', idleS: 0, tilt: frame.tilt || 0, overheat: frame.health === 'crit' }
+    : { working, frozen, engineOn, proximity, fatigue, checks, view, skill: profile?.skill || 'Intermediate', idleS, digRef, tilt, overheat }
+
+  // replay playback: frames were recorded at 4 per second
+  useEffect(() => {
+    if (!playing || !rec) return
+    const i = setInterval(() => setIdx((n) => {
+      if (n >= rec.frames.length - 1) { setPlaying(false); return n }
+      return n + 1
+    }), 250 / speed)
+    return () => clearInterval(i)
+  }, [playing, rec, speed])
+
+  const loadRecs = () => api.blackboxList(machineId).then(setRecs).catch(() => {})
+  useEffect(() => {
+    if (replayOnly) return
+    loadRecs()
+    const i = setInterval(loadRecs, 8000)
+    return () => clearInterval(i)
+  }, [machineId]) // eslint-disable-line react-hooks/exhaustive-deps
+  const openRec = async (id) => {
+    const r = await api.blackbox(id)
+    setRec(r)
+    setIdx(0)
+    setPlaying(true)
+    setView('orbit')
+  }
+  const exitReplay = () => { setRec(null); setPlaying(false) }
+  const triggerIdx = rec ? Math.max(0, rec.frames.findIndex((f) => f.t >= rec.trigger_at)) : 0
 
   // Idle timer: engine on, no task running
   useEffect(() => {
@@ -280,17 +325,23 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
       const m = t.model
       const p = m.parts
 
-      // Dig cycle only while a task runs and nothing blocks it (interlock = frozen)
-      if (L.working && !L.frozen) dig += dt
+      // Dig cycle only while a task runs and nothing blocks it (interlock = frozen).
+      // Live: shared app clock (so black-box frames reproduce the exact pose). Replay: the recorded clock.
+      let digNow
+      if (L.replay) digNow = L.dig || 0
+      else if (L.digRef) digNow = L.digRef.current.dig
+      else { if (L.working && !L.frozen) dig += dt; digNow = dig }
       const w = 1.1
       const rest = (n) => n.userData.rest || new THREE.Euler()
       const zAx = m.zUp ? 'y' : 'z'
       const yAx = m.zUp ? 'z' : 'y'
       let swing = 0
-      if (p.upper) { swing = 0.55 * Math.sin(dig * 0.45); p.upper.rotation[yAx] = rest(p.upper)[yAx] + swing }
-      if (p.boom) p.boom.rotation[zAx] = (p.boom.userData.rest ? rest(p.boom)[zAx] : 0.45) + 0.2 * Math.sin(dig * w)
-      if (p.stick) p.stick.rotation[zAx] = (p.stick.userData.rest ? rest(p.stick)[zAx] : -1.9) + 0.35 * Math.sin(dig * w + 1)
-      if (p.bucket) p.bucket.rotation[zAx] = (p.bucket.userData.rest ? rest(p.bucket)[zAx] : -0.8) + 0.5 * Math.sin(dig * w + 2)
+      if (p.upper) { swing = 0.55 * Math.sin(digNow * 0.45); p.upper.rotation[yAx] = rest(p.upper)[yAx] + swing }
+      if (p.boom) p.boom.rotation[zAx] = (p.boom.userData.rest ? rest(p.boom)[zAx] : 0.45) + 0.2 * Math.sin(digNow * w)
+      if (p.stick) p.stick.rotation[zAx] = (p.stick.userData.rest ? rest(p.stick)[zAx] : -1.9) + 0.35 * Math.sin(digNow * w + 1)
+      if (p.bucket) p.bucket.rotation[zAx] = (p.bucket.userData.rest ? rest(p.bucket)[zAx] : -0.8) + 0.5 * Math.sin(digNow * w + 2)
+      // Rollover sensor: roll the whole machine sideways by the measured tilt
+      m.root.rotation.x += ((-(L.tilt || 0) * Math.PI) / 180 - m.root.rotation.x) * 0.15
 
       // Heritage paint: gray (beginner) -> CAT yellow (expert)
       paintTarget.set(PAINT[L.skill] || PAINT.Intermediate)
@@ -300,8 +351,8 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
       const idleHot = L.engineOn && !L.working && L.idleS >= IDLE_ALERT_S
       if (p.engine?.material) {
         const em = p.engine.material
-        em.emissive?.set(idleHot ? '#ff5a00' : '#000000')
-        if (em.emissive) em.emissiveIntensity = idleHot ? 0.5 + 0.4 * Math.sin(now * 4) : 0
+        em.emissive?.set(L.overheat ? '#ff1500' : idleHot ? '#ff5a00' : '#000000')
+        if (em.emissive) em.emissiveIntensity = L.overheat ? 0.7 + 0.3 * Math.sin(now * 8) : idleHot ? 0.5 + 0.4 * Math.sin(now * 4) : 0
       }
       if (p.cab?.material?.emissive) {
         const drowsy = L.fatigue.level === 'microsleep' || L.fatigue.level === 'drowsy'
@@ -334,6 +385,7 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
         a.getWorldPosition(v)
         const s = t.hotspots[i]
         s.position.copy(v)
+        s.visible = !L.replay
         const ok = L.checks.includes(i)
         s.material.color.set(ok ? '#3ecf6e' : '#ffa62b')
         s.material.emissive.set(ok ? '#1f7a40' : '#ffa62b')
@@ -341,7 +393,7 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
         const lbl = labelRefs.current[i]
         if (lbl) {
           const pr = v.clone().project(camera)
-          const visible = pr.z < 1 && L.view !== 'cab'
+          const visible = pr.z < 1 && L.view !== 'cab' && !L.replay
           lbl.style.display = visible ? 'block' : 'none'
           lbl.style.left = `${((pr.x + 1) / 2) * el.clientWidth}px`
           lbl.style.top = `${((1 - pr.y) / 2) * el.clientHeight}px`
@@ -443,6 +495,8 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
     { k: 'Swing zone', v: proximity.level === 'danger' ? `🛑 Person ${proximity.distance?.toFixed(1)} m` : proximity.level === 'warn' ? `⚠️ Person ${proximity.distance?.toFixed(1)} m` : '✓ Clear', c: proximity.level === 'danger' ? 'bad' : proximity.level === 'warn' ? 'warn' : 'good' },
     { k: 'Operator', v: fatigue.level === 'off' ? 'Monitor off' : fatigue.level, c: ['microsleep', 'drowsy'].includes(fatigue.level) ? 'bad' : fatigue.level === 'tired' ? 'warn' : 'good' },
     { k: 'Walkaround', v: `${checks.length}/${CHECKLIST.length} checked`, c: checks.length === CHECKLIST.length ? 'good' : 'warn' },
+    { k: 'Machine health', v: health ? { ok: '✓ Normal', warn: '⚠️ Attention', crit: '🛑 Critical' }[health.overall] : '…', c: health ? { ok: 'good', warn: 'warn', crit: 'bad' }[health.overall] : '' },
+    { k: 'Tilt', v: `${Math.round(tilt)}°${tilt > 30 ? ' ROLLOVER RISK' : ''}`, c: tilt > 30 ? 'bad' : tilt > 20 ? 'warn' : 'good' },
     { k: 'Paint', v: `${profile?.skill || '…'} (${profile?.skill === 'Expert' ? 'CAT yellow' : profile?.skill === 'Beginner' ? 'steel gray' : 'transition'})`, c: '' },
   ]
 
@@ -463,21 +517,75 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
                 {checks.includes(i) ? '✓' : i + 1} {l}
               </button>
             ))}
-            {frozen && <div className="twin-banner">⛔ MOTION INHIBITED: {blockers.join(' · ')}</div>}
-            {engineOn && !working && idleS >= IDLE_ALERT_S && !frozen && (
+            {frame && (
+              <div className="replay-hud">
+                <div className="row wrap" style={{ gap: 6 }}>
+                  <span className="chip bad">🎬 REPLAY · {rec.id}</span>
+                  <span className="chip">{TRIGGER_LABEL[rec.trigger] || rec.trigger}</span>
+                  <span className="chip mono">t = {((frame.t - rec.trigger_at) / 1000).toFixed(1)} s</span>
+                </div>
+                <div className="row wrap" style={{ gap: 6, marginTop: 6 }}>
+                  <span className={`chip ${frame.engineOn ? 'good' : ''}`}>{frame.engineOn ? '⚙️ Engine on' : '⏻ Engine off'}</span>
+                  <span className={`chip ${frame.seatbelt === 'Fastened' ? 'good' : 'bad'}`}>🪢 {frame.seatbelt}</span>
+                  <span className={`chip ${frame.prox?.level === 'danger' ? 'bad' : frame.prox?.level === 'warn' ? 'warn' : 'good'}`}>
+                    👷 {frame.prox?.distance != null ? `${frame.prox.distance.toFixed(1)} m` : 'zone clear'}</span>
+                  <span className={`chip ${['microsleep', 'drowsy'].includes(frame.fatigue?.level) ? 'bad' : ''}`}>😴 {frame.fatigue?.level || 'off'}</span>
+                  {frame.tilt > 5 && <span className="chip bad">↘️ tilt {Math.round(frame.tilt)}°</span>}
+                  {frame.task && <span className="chip">{frame.task}</span>}
+                </div>
+              </div>
+            )}
+            {!frame && frozen && <div className="twin-banner">⛔ MOTION INHIBITED: {blockers.join(' · ')}</div>}
+            {frame?.frozen && <div className="twin-banner" style={{ top: 'auto', bottom: 12 }}>⛔ Motion inhibited at this moment</div>}
+            {!frame && engineOn && !working && idleS >= IDLE_ALERT_S && !frozen && (
               <div className="twin-banner warn">🔥 Engine idling {fmtIdle}. Burning ~3.5 L/h (≈ ₹5/min). Shut down if waiting over 5 min.</div>
             )}
           </div>
+          {rec && (
+            <div className="replay-bar">
+              <button className="btn sm primary" onClick={() => { if (idx >= rec.frames.length - 1) setIdx(0); setPlaying(!playing) }}>{playing ? '⏸' : '▶'}</button>
+              <div className="replay-track">
+                <input type="range" min="0" max={rec.frames.length - 1} value={idx} onChange={(e) => { setPlaying(false); setIdx(Number(e.target.value)) }} />
+                <div className="replay-marker" style={{ left: `${(triggerIdx / Math.max(1, rec.frames.length - 1)) * 100}%` }} title="Trigger moment">▼</div>
+              </div>
+              <span className="mono small">{Math.round((frame.t - rec.frames[0].t) / 1000)}s / {Math.round((rec.frames[rec.frames.length - 1].t - rec.frames[0].t) / 1000)}s</span>
+              <button className="btn sm" onClick={() => setSpeed(speed === 1 ? 2 : speed === 2 ? 4 : 1)}>{speed}×</button>
+              <button className="btn sm" onClick={() => { setIdx(Math.max(0, triggerIdx - 12)); setPlaying(true) }}>⏮ Jump to event</button>
+              {!replayOnly && <button className="btn sm ghost" onClick={exitReplay}>✕ Back to live</button>}
+            </div>
+          )}
           <div className="row wrap" style={{ padding: 12, gap: 8 }}>
             {[['orbit', '🔄 Orbit'], ['top', '🗺️ Top view'], ['cab', '🪟 Operator view']].map(([k, l]) => (
               <button key={k} className={`btn sm ${view === k ? 'primary' : ''}`} onClick={() => setView(k)}>{l}</button>
             ))}
             <div className="spacer" />
-            <button className="btn sm" onClick={simulateWorker}>🚶 Simulate worker</button>
+            {!replayOnly && <button className="btn sm" onClick={simulateWorker}>🚶 Simulate worker</button>}
           </div>
         </div>
+        {replayOnly ? (
+          <div className="card">
+            <h3>🎬 {rec?.id}: {TRIGGER_LABEL[rec?.trigger] || rec?.trigger}</h3>
+            <div className="small">{rec?.detail}</div>
+            <div className="small muted" style={{ marginTop: 8 }}>{rec?.operator_name} · {rec?.machine_id} · {rec?.time?.replace('T', ' ')}</div>
+            <p className="small muted">Drag the timeline or press ⏮ to jump to the moment it happened. The ▼ marker shows the trigger.</p>
+          </div>
+        ) : (
 
         <div className="grid" style={{ gap: 16 }}>
+          <div className="card" style={{ borderColor: 'var(--amber)' }}>
+            <h3>🎬 Black-box recordings</h3>
+            <p className="card-sub">Like an aircraft black box: the last 60 s of machine state is saved automatically on every incident, near-miss, microsleep, SOS, rollover or critical fault.</p>
+            {recs.length === 0 && <div className="small muted">No recordings yet. Trigger a near-miss or SOS to create one.</div>}
+            <div style={{ maxHeight: 220, overflow: 'auto' }}>
+              {recs.map((r) => (
+                <div key={r.id} className={`list-item row small ${rec?.id === r.id ? 'active-rec' : ''}`}>
+                  <span><b className="mono">{r.id}</b> {TRIGGER_LABEL[r.trigger] || r.trigger}<br /><span className="muted">{r.detail} · {r.time.slice(11, 19)} · {r.seconds}s</span></span>
+                  <div className="spacer" />
+                  <button className="btn sm primary" onClick={() => openRec(r.id)}>▶ Replay</button>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="card">
             <h3>🚜 Live machine state</h3>
             {state.map((s) => (
@@ -517,6 +625,7 @@ export default function Twin({ schedule, profile, seatbelt, engineOn, proximity,
             <p className="small muted" style={{ marginBottom: 0 }}>Or drag a file onto the 3D view, or save it as <code>frontend/public/models/excavator.fbx</code> to load automatically.</p>
           </div>
         </div>
+        )}
       </div>
     </div>
   )

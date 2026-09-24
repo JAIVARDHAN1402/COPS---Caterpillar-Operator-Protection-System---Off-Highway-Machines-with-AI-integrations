@@ -45,6 +45,38 @@ export const api = {
   createIncident: (body) => post('/incidents', body),
   incidents: (id) => req(`/incidents?operator_id=${id}`),
 
+  // machine health (runtime monitoring)
+  health: (mid) => req(`/machines/${mid}/health`),
+  setEngine: (mid, on, working) => post(`/machines/${mid}/engine`, { on, working }),
+  injectFault: (mid, fault) => post(`/machines/${mid}/health/fault`, { fault }),
+  service: (mid, what = 'all') => post(`/machines/${mid}/health/service`, { what }),
+
+  // emergency
+  raiseSos: (body) => post('/sos', body),
+  sos: (id) => req(`/sos/${id}`),
+  ackSos: (id, by) => post(`/sos/${id}/ack`, { by }),
+  resolveSos: (id, note) => post(`/sos/${id}/resolve`, { note }),
+  escalateSos: (id, reason) => post(`/sos/${id}/escalate`, { reason }),
+  shiftReport: (opId, mid) => req(`/shift-report/${opId}?machine_id=${mid}`),
+  sendShiftReport: (opId, mid) => post(`/shift-report/${opId}/send?machine_id=${mid}`),
+
+  // black box
+  saveBlackBox: (body) => post('/blackbox', body),
+  blackboxList: (mid) => req(`/blackbox${mid ? `?machine_id=${mid}` : ''}`),
+  blackbox: (id) => req(`/blackbox/${id}`),
+
+  supervisor: () => req('/supervisor/overview'),
+
+  // emergency stop + supervisor SMS
+  emergencyStop: (mid, body) => post(`/machines/${mid}/stop`, body),
+  smsStatus: () => req('/sms'),
+  smsConfig: (to) => post('/sms/config', { to }),
+  smsTest: (channel = 'sms') => post(`/sms/test?channel=${channel}`),
+
+  // ASK COPS assistant
+  ask: (body) => post('/assistant', body),
+  askSuggestions: () => req('/assistant/suggestions'),
+
   training: (id) => req(`/training/${id}`),
   completeTraining: (id, module_id, score) => post(`/training/${id}/complete`, { module_id, score }),
   resetDemo: () => post('/demo/reset'),

@@ -4,7 +4,7 @@ import { AIBadge, Modal, SkillChip, TASK_ICON, WEATHER_ICON } from '../component
 import { chime, listenOnce, speak } from '../voice'
 
 // ------------------------------------------------------------------ punch-in
-export function PunchIn({ onPunched, notice }) {
+export function PunchIn({ onPunched, notice, onSupervisor }) {
   const [id, setId] = useState('')
   const [ops, setOps] = useState([])
   const [pending, setPending] = useState([])
@@ -83,6 +83,7 @@ export function PunchIn({ onPunched, notice }) {
             ))}
           </div>
         </div>
+        <button className="btn" style={{ width: '100%', marginTop: 14 }} onClick={onSupervisor}>🧑‍💼 Supervisor console: live SOS, machine health & replays</button>
       </div>
     </div>
   )

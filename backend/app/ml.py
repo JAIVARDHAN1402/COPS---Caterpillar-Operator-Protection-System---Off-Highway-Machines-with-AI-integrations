@@ -1,4 +1,5 @@
 """ML models: explainable task-time prediction + explainable anomaly detection."""
+import copy
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor, IsolationForest
@@ -47,11 +48,15 @@ class TimePredictor:
         baseline_mae = float(mean_absolute_error(df["actual_min"], df["estimated_min"]))
 
         params = dict(n_estimators=250, max_depth=3, random_state=0)
-        self.mid = GradientBoostingRegressor(**params).fit(X, y)
-        self.lo = GradientBoostingRegressor(loss="quantile", alpha=0.1, **params).fit(X, y)
-        self.hi = GradientBoostingRegressor(loss="quantile", alpha=0.9, **params).fit(X, y)
+        mid = GradientBoostingRegressor(**params).fit(X, y)
+        lo = GradientBoostingRegressor(loss="quantile", alpha=0.1, **params).fit(X, y)
+        hi = GradientBoostingRegressor(loss="quantile", alpha=0.9, **params).fit(X, y)
+        # Swap the new models in together (training can run in a background thread
+        # while requests keep predicting with the previous version).
+        self.mid, self.lo, self.hi = mid, lo, hi
         self.n_samples = len(df)
         self.df = df[["task_type", "weather", "operator_skill"]].copy()
+        self._cache = {}
         self.mae_history.append({"samples": len(df), "mae": round(mae, 2)})
         self.stats = {"mae": round(mae, 2), "baseline_mae": round(baseline_mae, 2),
                       "samples": len(df), "history": self.mae_history[-20:]}
@@ -65,6 +70,16 @@ class TimePredictor:
         return float(self.mid.predict(self._encode(self._row(*args)))[0])
 
     def predict(self, task_type, weather, skill, age):
+        # Same inputs -> same answer until the next retrain; the scheduler asks many times per request.
+        key = (task_type, weather, skill, int(age))
+        cache = getattr(self, "_cache", None)
+        if cache is None:
+            cache = self._cache = {}
+        if key not in cache:
+            cache[key] = self._predict(task_type, weather, skill, age)
+        return copy.deepcopy(cache[key])
+
+    def _predict(self, task_type, weather, skill, age):
         X = self._encode(self._row(task_type, weather, skill, age))
         pred = float(self.mid.predict(X)[0])
         low = min(float(self.lo.predict(X)[0]), pred)
