@@ -1,5 +1,10 @@
+// Locally the Vite dev server proxies /api to port 8000. When the site is deployed
+// (e.g. Vercel) and the API runs elsewhere (e.g. Render), set VITE_API_BASE at build time
+// to the API's origin, like https://cops-api.onrender.com
+const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/+$/, '')
+
 async function req(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE}/api${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options,
     body: options.body ? JSON.stringify(options.body) : undefined,

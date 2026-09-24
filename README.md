@@ -28,6 +28,19 @@ npm run dev
 ```
 Use **Chrome or Edge**, because voice recognition needs the Web Speech API.
 
+## Deploy (Render + Vercel)
+The API keeps live state in memory (engine, SOS, machine health), so it runs on one always-on
+server (Render); the website is static and runs on Vercel.
+
+1. **API on Render:** New → **Blueprint** → pick this repo. `render.yaml` sets everything up.
+   Fill in `COPS_SMS_TO` (and optionally `CALLMEBOT_API_KEY`, `ANTHROPIC_API_KEY`) when asked.
+   Note the service URL, e.g. `https://cops-api.onrender.com`.
+2. **Website on Vercel:** Add New → Project → import this repo. `vercel.json` sets the build.
+   Add the environment variable **`VITE_API_BASE`** = your Render URL, then Deploy.
+
+The free Render plan sleeps after 15 minutes without traffic, and the first request then takes
+about a minute. Open the API URL a minute before a demo to wake it.
+
 ## How each requirement is met
 
 | Requirement | What we built | What makes it different |
